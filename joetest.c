@@ -25,3 +25,34 @@ char **argv;
 		}
 	}
 }
+
+
+/*
+
+Alternate from book:
+
+
+* joetest.c:
+*
+* Scan for "joe" accounts -- accounts with the same username
+*and password.
+
+#include <stdio.h>
+#include <pwd.h>
+int   main(int argc,char **argv)
+{
+    struct     passwd *pw;
+
+    while(pw=getpwent() ){
+        char     *crypt();
+        char     *result;
+
+        result = crypt(pw->pw_name,pw->pw_passwd);
+        if(!strcmp(result,pw->pw_passwd)){
+            printf("%s is a joe\n",pw->pw_name);
+        }
+    }
+    exit(0);
+}
+
+*/
